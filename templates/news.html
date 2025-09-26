@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}News - MH370 Memorial{% endblock %}
+
+{% block content %}
+<h2>MH370 News Updates</h2>
+<p>Latest developments in the ongoing search and remembrance efforts.</p>
+<div class="news-timeline">
+    {% for item in news %}
+        <div class="news-item">
+            <h3><i class="fas fa-plane-departure" style="color: #D52B1E;"></i> {{ item.title }}</h3>
+            <p class="news-date"><strong>Date:</strong> {{ item.date }} | <strong>Source:</strong> <a href="#" class="news-source" onclick="window.open('https://www.reuters.com', '_blank')">{{ item.source }}</a></p>
+            <p>{{ item.content }}</p>
+        </div>
+    {% endfor %}
+</div>
+<p><a href="{{ url_for('home') }}">Back to Home</a></p>
+{% endblock %}

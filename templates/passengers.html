@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Passengers - MH370 Memorial{% endblock %}
+
+{% block content %}
+<h2>Passenger Manifest</h2>
+<p>Honoring those aboard Malaysia Airlines Flight 370.</p>
+<table>
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Nationality</th>
+            <th>Seat</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in passengers %}
+            <tr>
+                <td>{{ p.sno }}</td>
+                <td>{{ p.first_name }} {{ p.last_name }}</td>
+                <td>{{ p.nationality }}</td>
+                <td>{{ p.seat_number }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p><a href="{{ url_for('home') }}">Back to Home</a></p>
+{% endblock %}
