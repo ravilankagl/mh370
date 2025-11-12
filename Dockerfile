@@ -7,7 +7,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 # Verify Flask installation
 RUN pip show flask /
-    pip -version
+RUN pip -version
 
 # Runtime stage: Use slim image for reliability
 FROM python:3.9-slim
