@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 # Verify Flask installation
-RUN pip show flask
+RUN pip show flask /
+    pip -version
 
 # Runtime stage: Use slim image for reliability
 FROM python:3.9-slim
