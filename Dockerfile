@@ -8,7 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN sudo apt update
 # Verify Flask installation
 RUN pip show flask /
-RUN pip -version
 
 # Runtime stage: Use slim image for reliability
 FROM python:3.9-slim
