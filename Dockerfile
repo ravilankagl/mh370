@@ -5,14 +5,14 @@ COPY requirements.txt .
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-RUN sudo apt update
+
 # Verify Flask installation
-RUN pip show flask /
-RUN pip -version
+RUN pip show flask
 
 # Runtime stage: Use slim image for reliability
 FROM python:3.9-slim
 WORKDIR /app
+
 # Copy installed packages from builder
 COPY --from=builder /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
